@@ -1,0 +1,12 @@
+---
+# tasks file for rola
+
+- name: unzip install
+  package:
+   name: unzip
+   state: present
+
+- name: net-tools install
+  package:
+   name: net-tools
+   state: present

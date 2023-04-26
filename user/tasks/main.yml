@@ -1,0 +1,19 @@
+---
+# tasks file for user
+
+- name: Create group panda
+  group:
+    name: panda
+    state: present
+
+- name: Create user panda
+  user:
+    name: panda
+    shell: /bin/bash
+    groups: panda, sudo
+
+- name: Copy authorized key
+  authorized_key:
+    user: panda
+    state: present
+    key: "{{ lookup('file', '/home/vagrant/.ssh/authorized_keys') }}
